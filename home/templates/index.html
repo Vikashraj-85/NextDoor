@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!-- Hero Section -->
+
+
+<div class="hero-gap">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Experience Luxury Like Never Before</h1>
+            <p>Discover our premium collection of beautifully designed rooms with world-class amenities and exceptional
+                service.</p>
+            <a href="#" class="cta-button">Book Now</a>
+        </div>
+    </section>
+
+
+    <!--  profile model end -->
+
+
+
+    <!-- model end -->
+
+    <!-- Featured Rooms -->
+    <section id="rooms" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Featured Rooms</h2>
+            <div class="rooms-grid">
+                <!-- cards -->
+                {% for room in data %}
+                <div class="rk-room-card">
+                    <!-- IMAGE -->
+                    <div class="rk-room-image-box">
+                        <img src="{{ room.image.url }}" alt="Room Image" class="rk-room-image">
+                    </div>
+                    <!-- CONTENT -->
+                    <div class="rk-room-content">
+                        <h2 class="rk-room-title">{{ room.title }} </h2>
+                        <p class="text-dark"><u> {{ room.room_type}}</u></p>
+                        <p class="rk-room-description">
+                            {{ room.description }}
+                        </p>
+                        <div class="rk-room-price">
+                            {{ room.price }} / Month
+                        </div>
+                        <div class="rk-room-location d-flex justify-content-between">
+                            <a href="#" class="">📍 {{room.location}}, India</a>
+                            {% if room.available %}
+                            <p class="p_1_available"> Available</p>
+                            {% else %}
+                            <p class="p_1_not_available"> Not Available</p>
+                            {% endif %}
+                        </div>
+                        <!-- BUTTONS -->
+                        <div class="rk-room-buttons">
+                            <a href="{% url 'detail' room.id %}" class="rk-detail-btn">View Details</a>
+                            <a href="{% url 'payment' room.id %}" class="rk-book-btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- About Developers -->
+    <h2 class="section-title " id="">Meet Our Team</h2>
+    <section id="about" class="about-dev">
+        <div class="container dev-section-h2">
+            <!-- -------------satrt card section -------------------- -->
+            <div class="dev-card-container">
+                <div class="dev-card">
+
+                    <!-- LEFT IMAGE -->
+                    <div class="profile-img">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop"
+                            alt="">
+                    </div>
+
+                    <!-- RIGHT DETAILS -->
+                    <div class="details">
+                        <h2>Vikash Rajpoot</h2>
+                        <h4>Full Stack Developer</h4>
+                        <p>
+                            Passionate developer skilled in MERN Stack,
+                            Django and responsive web design.
+                        </p>
+                    </div>
+
+                </div>
+                <!-- card 2 -->
+                <div class="dev-card">
+
+                    <!-- LEFT IMAGE -->
+                    <div class="profile-img">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop"
+                            alt="">
+                    </div>
+
+                    <!-- RIGHT DETAILS -->
+                    <div class="details">
+                        <h2>Vikash Rajpoot</h2>
+                        <h4>Full Stack Developer</h4>
+                        <p>
+                            Passionate developer skilled in MERN Stack,
+                            Django and responsive web design.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- --------------------end card section--------------------- -->
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">What Our Guests Say</h2>
+            <div class="rooms-grid">
+
+                {% for review in reviews %}
+
+                <!-- ---------- -->
+                <div class="review-card">
+
+                    <!-- Top Row -->
+                    <div class="review-header">
+
+                        <div class="user-name">
+                          <img src="{% static 'media/profile_1.avif' %}" alt="" >
+                           <p class="mt-3 ">{{review.user}} </p>
+                        </div> 
+
+                        <div class="rating"> 
+                            {% for i in "12345" %}
+                                    
+                            {% if forloop.counter <= review.rating %} <span class="star filled ">★</span>
+                                {% else %}
+                                <span class="star">★</span>
+                                {% endif %}
+
+                                {% endfor %}
+                        </div>
+
+                    </div>
+
+                    <!-- Comment -->
+                    <div class="review-comment mb-2">
+                       <h6> {{ review.comment }}</h6>
+                    </div>
+
+                </div>
+                <!-- --------- -->
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- ------------------user review system-------------- -->
+    {% if user.is_authenticated %}
+    <section>
+        <div class="review-container">
+            <h2 class="review-heading">Leave Your Review</h2>
+            <form method="POST" class="review-form " action="{% url 'add_review' %}">
+                {% csrf_token %}
+                <!-- Star Rating -->
+                <div class="rating-wrapper">
+                    <input type="hidden" name="rating" id="rating-value" required>
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <!-- Comment -->
+                <div class="form-group">
+                    <textarea name="comment" rows="6" placeholder="Share your experience..." required></textarea>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="review-btn">
+                    Submit Review
+                </button>
+            </form>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Contact Preview -->
+    <section id="contact" class="section contact-preview">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+            <p class="animate-on-scroll" style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Ready to
+                book your stay? Contact us today!</p>
+            <div class="contact-grid">
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>+1 (555) 123-4567</h4>
+                        <p>24/7 Support</p>
+                    </div>
+                </div>
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>hello@luxurystay.com</h4>
+                        <p>Send us a message</p>
+                    </div>
+                </div>
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>123 Luxury Street</h4>
+                        <p>New York, NY 10001</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

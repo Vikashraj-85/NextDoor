@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="auth-container mt-5">
+
+    <div class="left-panel">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>NextDoor</h1>
+            <p>Find the perfect room, flat, PG, or apartment near you.</p>
+        </div>
+    </div>
+
+    <div class="right-panel bg-dark">
+
+        <div class="form-card">
+
+            <h2>Welcome Back 👋</h2>
+            <p class="subtitle">Login to continue</p>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+
+            {% endif %}
+
+            {% if form.errors %}
+
+            <div class="alert alert-danger">
+
+                {% for field in form %}
+
+                {% for error in field.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+
+                {% endfor %}
+
+                {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+
+            </div>
+
+            {% endif %}
+           
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="input-box">
+                    <i class="fa fa-user"></i>
+                    {{ form.username }}
+                </div>
+
+                <div class="input-box">
+                    <i class="fa fa-lock"></i>
+                    {{ form.password }}
+                </div>
+
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+
+            <div class="extra-links">
+                <a href="{% url 'resetpass' %}">Forgot Password?</a>
+            </div>
+
+            <div class="divider">OR</div>
+
+            <div class="social-buttons  d-flex justify-content-around">
+                <button class="btn "><i class="fab fa-google"></i> Google</button>
+                <button class="btn "><i class="fab fa-facebook text-primary"></i> Facebook</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

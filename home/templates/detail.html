@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/property_detail.css' %}">
+
+<section class="property-detail-section">
+
+    <div class="property-container">
+
+        <!-- LEFT SIDE -->
+        <div class="property-images">
+
+            <!-- Main Image -->
+            <div class="main-image">
+                <img src="{{ property.image.url }}" alt="">
+            </div>
+
+            <!-- Mini Images -->
+            <div class="mini-images">
+                {% for img in property.propertyimage_set.all %}
+                <img src="{{ img.image.url }}" alt="">
+                {% empty %}
+                <p>No additional images available</p>
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="property-info">
+
+            <h1>{{ property.title }}</h1>
+            <p>Type :- {{ property.room_type }}</p>
+
+            <div class="price">
+                ₹ {{ property.price }} / Month
+            </div>
+
+            <div class="location  d-flex justify-content-between align-items-center">
+
+                <a href="">📍 {{ property.location }} ,India</a>
+                {% if property.available %}
+                <p class="p_1_available mt-2">Available</p>
+                {% else %}
+                <p class="p_1_not_available mt-2"> Not Available</p>
+                {% endif %}
+            </div>
+
+            <p class="description">
+                {{ property.description }}
+            </p>
+
+            <button class="book-btn">
+                Book Now
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

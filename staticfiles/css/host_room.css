@@ -1,0 +1,206 @@
+/* BODY */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+
+/* BACKGROUND */
+
+.rk-bg-overlay{
+    width:100%;
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.65),
+    rgba(0,0,0,0.65)),
+
+    url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1974&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+}
+
+
+/* CONTAINER */
+
+.rk-host-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+/* CARD */
+
+.rk-host-card{
+    width:100%;
+    max-width:650px;
+
+    background:rgba(255,255,255,0);
+
+    /* backdrop-filter:blur(18px); */
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:24px;
+
+    padding:40px;
+
+    box-shadow:0 10px 40px rgba(56, 56, 56, 0.4);
+}
+
+
+/* TITLE */
+
+.rk-host-title{
+    text-align:center;
+    font-size:42px;
+    font-weight:700;
+    color:white;
+    margin-bottom:10px;
+}
+
+
+/* SUBTITLE */
+
+.rk-host-subtitle{
+    text-align:center;
+    color:#d1d5db;
+    margin-bottom:35px;
+    font-size:16px;
+}
+
+
+/* FORM GROUP */
+
+.rk-form-group{
+    margin-bottom:22px;
+}
+
+
+/* LABEL */
+
+.rk-form-group label{
+    display:block;
+    margin-bottom:8px;
+    color:white;
+    font-weight:600;
+}
+
+
+/* INPUTS */
+
+.rk-room-input{
+    width:100%;
+    padding:15px 16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.12);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    color:white;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+
+    transition:0.3s;
+}
+
+
+/* TEXTAREA */
+
+textarea.rk-room-input{
+    resize:none;
+}
+
+
+/* PLACEHOLDER */
+
+.rk-room-input::placeholder{
+    color:#d1d5db;
+}
+
+
+/* FOCUS */
+
+.rk-room-input:focus{
+    border-color:#8b5cf6;
+    box-shadow:0 0 0 4px rgba(139,92,246,0.2);
+}
+
+
+/* SELECT */
+
+select.rk-room-input{
+    color:white;
+}
+
+
+/* OPTION */
+
+select.rk-room-input option{
+    color:black;
+}
+
+
+/* CHECKBOX */
+
+.rk-check-group{
+    display:flex;
+    gap:30px;
+    margin-bottom:25px;
+}
+
+.rk-check-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:white;
+}
+
+
+/* BUTTON */
+
+.rk-host-btn{
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+
+    color:white;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+/* BUTTON HOVER */
+
+.rk-host-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(37,99,235,0.3);
+}

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Get In Touch</h1>
+        <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <h2 class="section-title animate-on-scroll">Contact Information</h2>
+        <p class="section-subtitle animate-on-scroll">Have questions? We're here to help. Get in touch with us anytime.
+        </p>
+
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info animate-on-scroll">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                        <p>24/7 Customer Support</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <a href="mailto:hello@luxurystay.com">hello@luxurystay.com</a>
+                        <p>Response within 24 hours</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Address</h4>
+                        <p>123 Luxury Street<br>New York, NY 10001</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Business Hours</h4>
+                        <p>Mon - Sun: 24 Hours<br>Open 365 days</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container animate-on-scroll">
+                <div id="message" class="message"></div>
+                <form id="contactForm"  method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name" class="text-dark">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email" class="text-dark">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required>
+                        <label for="phone" class="text-dark">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message" class="text-dark">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Google Maps Section -->
+<section class="maps-section">
+    <div class="container">
+        <h2 class="section-title" style="color: #333; margin-bottom: 2rem;">Find Us</h2>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.476684017936!2d-73.98647768459217!3d40.74844797932815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b311746f%3A0xd134e199a405a163!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1635782345678!5m2!1sen!2sus"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Social Media Section -->
+<section class="social-section">
+    <div class="container">
+        <h2 class="social-title animate-on-scroll">Follow Us</h2>
+        <p class="social-subtitle animate-on-scroll">Stay connected and get the latest updates</p>
+        <div class="social-links">
+            <a href="#" class="social-link facebook" title="Facebook" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link instagram" title="Instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link twitter" title="Twitter" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link linkedin" title="LinkedIn" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link whatsapp" title="WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Our Comprehensive Services</h1>
+        <p>From luxury hotel bookings to secure PG accommodations, we provide complete accommodation solutions with 24/7
+            support</p>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title animate-on-scroll">Complete Accommodation Solutions</h2>
+        <p class="section-subtitle animate-on-scroll">Discover our wide range of services designed to meet all your
+            accommodation needs with premium quality and security</p>
+
+        <div class="services-grid">
+            <!-- Room Booking -->
+            {% for room in data %}
+            <div class="rk-room-card mb-5">
+                <!-- IMAGE -->
+                <div class="rk-room-image-box">
+                    <img src="{{ room.image.url }}" alt="Room Image" class="rk-room-image">
+                </div>
+                <!-- CONTENT -->
+                <div class="rk-room-content">
+                    <h2 class="rk-room-title">{{ room.title }} </h2>
+                    <p class="text-dark"><u> {{ room.room_type}}</u></p>
+                    <p class="rk-room-description" style="min-height: 60px;">
+                        {{ room.description }}
+                    </p>
+                    <div class="rk-room-price">
+                        {{ room.price }} / Month
+                    </div>
+                    <div class="rk-room-location d-flex justify-content-between">
+                        <a href="#" class="">📍 {{room.location}}, India</a>
+                        {% if room.available %}
+                        <p class="p_1_available"> Available</p>
+                        {% else %}
+                        <p class="p_1_not_available"> Not Available</p>
+                        {% endif %}
+                    </div>
+                    <!-- BUTTONS -->
+                    <div class="rk-room-buttons">
+                        <a href="{% url 'detail' room.id %}" class="rk-detail-btn">View Details</a>
+                        <a href="#" class="rk-book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- Hostel Booking -->
+
+
+            <!-- PG Booking -->
+
+
+            <!-- Flat Rental -->
+
+
+            <!-- Security Verification -->
+
+
+            <!-- 24/7 Support -->
+
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section ">
+    <div class="container ">
+        <div class="stats-grid">
+            <div class="stat-item animate-on-scroll">
+                <h3 class="counter" data-target="5000">0</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <h3 class="counter" data-target="10000">0</h3>
+                <p>Bookings Completed</p>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <h3 class="counter" data-target="50">0</h3>
+                <p>Cities Covered</p>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <h3 class="counter" data-target="365">0</h3>
+                <p>Days of Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section mt-5 mb-3">
+    <div class="container cta-text-v mt-2 mb-4">
+        <h2>Ready to Book Your Perfect Stay?</h2>
+        <p>Choose from our wide range of services and experience hassle-free accommodation booking</p>
+        <a href="#" class="service-cta" style="font-size: 1.1rem; padding: 18px 40px;">Get Started Today</a>
+    </div>
+</section>
+
+<!-- Footer -->
+
+
+
+
+{% endblock %}

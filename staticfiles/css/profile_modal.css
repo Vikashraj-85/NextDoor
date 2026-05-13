@@ -1,0 +1,129 @@
+/* MODAL BOX */
+
+.rk-modal-box{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    background:#ffffff;
+    padding:10px;
+}
+
+
+/* HEADER */
+
+.rk-modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.rk-modal-title{
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+    margin:0;
+}
+
+
+/* BODY */
+
+.rk-modal-body{
+    padding:25px;
+}
+
+
+/* INPUT GROUP */
+
+.rk-input-group{
+    margin-bottom:20px;
+}
+
+
+/* LABEL */
+
+.rk-label{
+    display:block;
+    margin-bottom:8px;
+    font-size:15px;
+    font-weight:600;
+    color:#111827 !important;
+}
+
+
+/* INPUT FIELD */
+
+.rk-input-group input{
+    width:100% !important;
+    padding:14px 16px !important;
+    border-radius:12px !important;
+    border:1px solid #d1d5db !important;
+    background:#f9fafb !important;
+    color:#111827 !important;
+    outline:none !important;
+    font-size:15px;
+    transition:0.3s;
+    box-sizing:border-box;
+}
+
+
+/* PLACEHOLDER */
+
+.rk-input-group input::placeholder{
+    color:#9ca3af;
+}
+
+
+/* FOCUS */
+
+.rk-input-group input:focus{
+    border-color:#7c3aed !important;
+    background:#ffffff !important;
+    box-shadow:0 0 0 4px rgba(124,58,237,0.15) !important;
+}
+
+
+/* FILE INPUT */
+
+.rk-input-group input[type="file"]{
+    padding:12px !important;
+    background:white !important;
+}
+
+
+/* BUTTON */
+
+.rk-save-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.rk-save-btn:hover{
+    transform:translateY(-2px);
+}
+
+.rk-form-input{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    background:#f9fafb;
+    outline:none;
+    font-size:15px;
+    color:#111827;
+    margin-top:8px;
+}
+
+.rk-form-input:focus{
+    border-color:#7c3aed;
+    box-shadow:0 0 0 4px rgba(124,58,237,0.15);
+}

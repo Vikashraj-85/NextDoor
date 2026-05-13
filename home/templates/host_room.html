@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+{% load static %}
+
+
+
+<div class="rk-bg-overlay mt-5">
+
+    <div class="rk-host-container">
+
+        <div class="rk-host-card">
+
+            <h2 class="rk-host-title">
+                Host Your Room
+            </h2>
+
+            <p class="rk-host-subtitle">
+                Upload your property and connect with thousands of users
+            </p>
+
+            <form method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="rk-form-group">
+                    <label>Room Title</label>
+                    {{ form.title }}
+                </div>
+
+                <div class="rk-form-group">
+                    <label>Description</label>
+                    {{ form.description }}
+                </div>
+
+                <div class="rk-form-group">
+                    <label>Price</label>
+                    {{ form.price }}
+                </div>
+
+                <div class="rk-form-group">
+                    <label>Location</label>
+                    {{ form.location }}
+                </div>
+
+                <div class="rk-form-group">
+                    <label>Room Type</label>
+                    {{ form.room_type }}
+                </div>
+
+                <div class="rk-check-group">
+
+                    <div class="rk-check-item">
+                        {{ form.furnished }}
+                        <span>Furnished</span>
+                    </div>
+
+                    <div class="rk-check-item">
+                        {{ form.available }}
+                        <span>Available</span>
+                    </div>
+
+                </div>
+
+                <div class="rk-form-group">
+                    <label>Room Image</label>
+                    {{ form.image }}
+                </div>
+                <div class="rk-form-group">
+                    <label>Room Extra Images</label>
+                    <input type="file" name="images" multiple class="rk-room-input">
+                </div>
+
+                <button type="submit" class="rk-host-btn">
+
+                    Upload Room
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}
