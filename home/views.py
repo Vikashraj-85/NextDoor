@@ -184,6 +184,8 @@ def profile_view(request):
     # ============================
 def host_room(request):
     if request.method == 'POST':
+        print("this is imgsss")
+        print(request.FILES)
         form = PropertyForm(request.POST, request.FILES)
         if form.is_valid():
             property = form.save(commit=False)

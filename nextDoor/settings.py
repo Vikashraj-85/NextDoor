@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-_6jeh16qnz3@b@0bej0wbapf*6gr($ygfarp!yn$k0jc0-whn1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://nextdoor-3ajn.onrender.com']
 
 
 
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+      'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +140,23 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# =========using cloudinay  not use these ======================
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+import cloudinary
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dua8nel7o',
+    'API_KEY': '359484277537273',
+    'API_SECRET': '-D7Rg_jQ7FLC6LdesytqpGSeMes',
+}
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
